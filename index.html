@@ -43,6 +43,13 @@
       </div>
     </form>
 
+    <div id="instantAnswer" class="support" style="display:block;">
+      <strong>Instant Answer from Search Assist:</strong>
+      <div id="answerText" class="small" style="margin-top:6px;">
+        Type your query above to see instant suggestions.
+      </div>
+    </div>
+
         <div class="instructions small" style="margin-top:12px">
       Search results use DuckDuckGo. Recommended reference sources:
       <ul class="small">
@@ -67,6 +74,30 @@
           q.focus();
           applyBtn.setAttribute('aria-pressed', 'true');
           setTimeout(function () { applyBtn.setAttribute('aria-pressed', 'false'); }, 1200);
+        }
+      });
+
+      // Instant answer logic (demo)
+      var answerText = document.getElementById('answerText');
+      var answers = {
+        'mobicontrol upgrade steps': 'To upgrade MobiControl, review the official documentation at wiki.soti.net and follow the step-by-step upgrade guide.',
+        'reset password': 'To reset your SOTI password, visit soti.net and use the password recovery option or contact support.',
+        'license activation': 'License activation instructions are available on pulse.soti.net. Ensure you have your license key ready.',
+        'enroll device': 'Device enrollment steps can be found on wiki.soti.net. Follow the platform-specific guide for best results.'
+      };
+      q.addEventListener('input', function () {
+        var query = q.value.trim().toLowerCase();
+        var found = false;
+        Object.keys(answers).forEach(function (key) {
+          if (query.includes(key)) {
+            answerText.textContent = answers[key];
+            found = true;
+          }
+        });
+        if (!found) {
+          answerText.textContent = query
+            ? 'No instant answer found. Try searching or visit wiki.soti.net for documentation.'
+            : 'Type your query above to see instant suggestions.';
         }
       });
     })();
