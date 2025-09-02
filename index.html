@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>SOTI Search Assist</title>
+  <title>SOTI Knowledge Base search engine</title>
   <style>
     body {
       font-family: 'Salesforce Sans', Arial, sans-serif;
@@ -52,11 +52,19 @@
     <h3>🔍 SOTI Search Assist</h3>
     <form method="get" action="https://duckduckgo.com/" target="_blank">
       <input type="text" name="q" placeholder="Search SOTI topics, e.g. 'MobiControl upgrade steps'" />
-      <input type="hidden" name="kp" value="-1" />
+      <input type="hidden" name="sites" value="wiki.soti.net" />
+      <input type="hidden" name="sites" value="pulse.soti.net" />
+      <input type="hidden" name="sites" value="soti.net" />
+      <input type="hidden" name="sites" value="youtube.com/@SOTI_inc" />
+      <input type="hidden" name="sites" value="linkedin.com/company/soti" />
       <input type="hidden" name="kl" value="uk-en" />
       <input type="hidden" name="kac" value="1" />
       <input type="hidden" name="kn" value="1" />
       <input type="hidden" name="kg" value="g" />
+      <input type="hidden" name="kz" value="1" />
+      <input type="hidden" name="kp" value="-1" />
+      <input type="hidden" name="kc" value="1" />
+      <input type="hidden" name="kav" value="1" />
       <input type="submit" value="Search" />
     </form>
     <div class="instructions">
